@@ -3,10 +3,11 @@ FROM amazon/aws-cli:2.15.30
 ARG TERRAFORM_VERSION=1.8.0
 
 RUN yum update -y \
+    && yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm \
     && yum install -y \
         bash \
         jq \
-        postgresql \
+        postgresql17 \
         unzip \
         curl \
     && curl -fsSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o /tmp/terraform.zip \
