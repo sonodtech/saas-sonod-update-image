@@ -4,7 +4,7 @@ ARG TERRAFORM_VERSION=1.8.0
 
 # Install system dependencies
 RUN dnf update -y \
-    && dnf install -y \
+    && dnf install -y --allowerasing \
         bash \
         jq \
         unzip \
